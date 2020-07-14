@@ -11,14 +11,17 @@ public class AutorDao {
 
 	@PersistenceContext
 	private EntityManager manager;
-	
+
 	public List<Autor> listar() {
-			
 		return manager.createQuery(
 				"select a from Autor a", Autor.class)
 				.getResultList();
-				
-		
 	}
 	
 }
+
+
+
+
+
+

@@ -25,32 +25,30 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Livro {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+	private Integer id;
 	
 	@NotBlank
-    private String titulo;
+	private String titulo;
 	
-    @Lob
-    @Length(min=10)
-    @NotBlank
+	@Lob
+	@Length(min=10)
+	@NotBlank
 	private String descricao;
 	
-    @DecimalMin("20")
-    private BigDecimal preco;
-    @Min(50)
+	@DecimalMin("20")
+	private BigDecimal preco;
+	@Min(50)
 	private Integer numeroPaginas;
-    
-    @Temporal(TemporalType.DATE)
-    private Calendar dataPublicacao;
-    
-    private String capaPath;
 	
+	@Temporal(TemporalType.DATE)
+	private Calendar dataPublicacao;
+	
+	private String capaPath;
 	
 	@ManyToMany
 	@Size(min=1)
 	@NotNull
 	private List<Autor> autores = new ArrayList<>();
-	
 	
 	public String getTitulo() {
 		return titulo;
@@ -85,8 +83,8 @@ public class Livro {
 	
 	@Override
 	public String toString() {
-		return "Livro [titulo=" + titulo + ", descricao=" + descricao + ", preco=" + preco + ", numeroPaginas="
-				+ numeroPaginas + ", autores=" + autores + "]";
+		return "Livro [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", preco=" + preco
+				+ ", numeroPaginas=" + numeroPaginas + ", autores=" + autores + "]";
 	}
 	public Calendar getDataPublicacao() {
 		return dataPublicacao;
@@ -94,12 +92,28 @@ public class Livro {
 	public void setDataPublicacao(Calendar dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
 	}
-	
-	public final String getCapaPath() {
+	public String getCapaPath() {
 		return capaPath;
 	}
-	public final void setCapaPath(String capaPath) {
+	public void setCapaPath(String capaPath) {
 		this.capaPath = capaPath;
 	}
-		
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	
+	
 }
+
+
+
+
+
+
+
+
+
